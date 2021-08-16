@@ -7,7 +7,13 @@
 import React from "react"
 
 import { createNativeStackNavigator } from "react-native-screens/native-stack"
-import { WelcomeScreen, DemoScreen,CountryDetailScreen } from "../screens"
+import {
+  WelcomeScreen,
+  DemoScreen,
+  CountryDetailScreen,
+  RandomAstInputScreen,
+  DetailScreen,
+} from "../screens"
 import { HomeScreen } from "../screens/home-screen/home-screen"
 
 /**
@@ -25,8 +31,10 @@ import { HomeScreen } from "../screens/home-screen/home-screen"
 export type PrimaryParamList = {
   welcome: undefined
   demo: undefined
-  home:undefined
-  countryDetail:undefined
+  home: undefined
+  countryDetail: undefined
+  randomAstData: undefined
+  detail: undefined
 }
 
 // Documentation: https://github.com/software-mansion/react-native-screens/tree/master/native-stack
@@ -40,6 +48,8 @@ export function PrimaryNavigator() {
         gestureEnabled: true,
       }}
     >
+      <Stack.Screen name="randomAstData" component={RandomAstInputScreen} />
+      <Stack.Screen name="detail" component={DetailScreen} />
       <Stack.Screen name="home" component={HomeScreen} />
       <Stack.Screen name="countryDetail" component={CountryDetailScreen} />
       <Stack.Screen name="welcome" component={WelcomeScreen} />
